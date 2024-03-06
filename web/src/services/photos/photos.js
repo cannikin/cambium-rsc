@@ -24,10 +24,13 @@ const getMetadata = (filename) => {
   })
 }
 
-const getFiles = () => {
+const getFiles = ({ thumb }) => {
   return fs
     .readdirSync(photosPath)
     .filter((file) => !EXCLUDE_FILES.includes(file))
+    .filter((file) =>
+      thumb ? file.includes('thumb') : !file.includes('thumb')
+    )
 }
 
 // returns the collection of all available photos
@@ -35,7 +38,7 @@ export const photos = () => {
   const photos = []
   let id = 1
 
-  for (const filename of getFiles()) {
+  for (const filename of getFiles({ thumb: true })) {
     photos.push({
       id: id++,
       filename,
@@ -47,7 +50,7 @@ export const photos = () => {
 
 // returns the metadata for a specific photo
 export const photo = async (id) => {
-  const filename = getFiles()[id - 1]
+  const filename = getFiles({ thumb: false })[id - 1]
 
   const { image: imageMetadata, exif: exifMetadata } = await getMetadata(
     filename
