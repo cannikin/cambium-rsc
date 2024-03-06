@@ -1,17 +1,90 @@
-/**
- * START --- SETUP TAILWINDCSS EDIT
- *
- * `yarn rw setup ui tailwindcss` placed these directives here
- * to inject Tailwind's styles into your CSS.
- * For more information, see: https://tailwindcss.com/docs/installation
- */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/**
- * END --- SETUP TAILWINDCSS EDIT
- */
-html, body {
-  margin: 0;
-  padding: 0;
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+}
+
+table.metadata {
+  tr {
+    @apply border-b border-neutral-700;
+
+    &:last-child {
+      @apply border-b-0;
+    }
+  }
+  td {
+    @apply py-3;
+  }
+  td:first-child {
+    @apply text-sm text-left text-neutral-500;
+  }
+  td:last-child {
+    @apply text-base text-right text-neutral-300 font-semibold;
+  }
+}
+
+form {
+  .control {
+    @apply opacity-70 hover:opacity-100 transition duration-150;
+  }
+  label {
+    @apply text-sm text-neutral-300 flex items-center justify-between;
+  }
+  .reset {
+    @apply text-xs text-neutral-600 hover:text-neutral-400 transition duration-150;
+  }
+  input {
+    @apply mt-1 block w-full;
+  }
+}
+
+input[type=range] {
+  @apply appearance-none bg-transparent;
+
+  &::-webkit-slider-runnable-track {
+    @apply bg-neutral-700 h-4 rounded-full cursor-pointer;
+  }
+
+  &::-moz-range-track {
+    @apply bg-neutral-700 h-4 rounded-full cursor-pointer;
+  }
+
+  &::-ms-track {
+    @apply bg-neutral-700 h-4 rounded-full cursor-pointer;
+  }
+
+  &::-webkit-slider-thumb {
+    @apply appearance-none w-5 h-5 -mt-[2px] rounded-full bg-neutral-400 cursor-pointer hover:scale-110 transition duration-150;
+  }
+
+  &::-moz-range-thumb {
+    @apply appearance-none w-5 h-5 -mt-[2px] rounded-full bg-neutral-400 cursor-pointer hover:scale-110 transition duration-150;
+  }
+
+  &::-ms-thumb {
+    @apply appearance-none w-5 h-5 -mt-[2px] rounded-full bg-neutral-400 cursor-pointer hover:scale-110 transition duration-150;
+  }
+}
+
+.detail {
+  @apply mt-2;
+
+  td {
+    @apply px-8;
+  }
+
+  h2 {
+    @apply text-xs text-neutral-500;
+  }
+
+  h3 {
+    @apply -mt-1 text-lg font-semibold text-neutral-300
+  }
+}
+
+.button {
+  @apply rounded-sm bg-neutral-300 px-6 py-2 text-sm font-semibold text-neutral-800 ring-2 ring-neutral-600 transition duration-150 ease-in-out hover:scale-105 hover:bg-neutral-200
 }

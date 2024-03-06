@@ -9,17 +9,19 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
-import NavigationLayout from './layouts/NavigationLayout/NavigationLayout'
+import AppLayout from './layouts/AppLayout/AppLayout'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 
 const Routes = () => {
   return (
     <Router>
-      <Set wrap={NavigationLayout}>
+      <Route path="/photos/{id:Int}" page={PhotoPage} name="photo" />
+
+      <Set wrap={AppLayout}>
         <Route path="/" page={HomePage} name="home" />
-        <Route path="/about" page={AboutPage} name="about" />
+        <Route path="/photos/{id:Int}/edit" page={EditPhotoPage} name="edit" />
+        <Route notfound page={NotFoundPage} />
       </Set>
-      <Route notfound page={NotFoundPage} />
     </Router>
   )
 }
