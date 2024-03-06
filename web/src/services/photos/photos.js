@@ -4,14 +4,7 @@ import path from 'node:path'
 
 import ExifImage from 'exif'
 
-const EXCLUDE_FILES = ['.DS_Store', '.keep']
-
-// const photosPath = path.resolve(
-//   '/Users/rob/Sites/rsc/cambium-rsc/web/public/photos'
-// )
-
 const photosPath = path.resolve('./public/photos')
-console.log('🚀 ~ photosPath:', photosPath)
 
 const getMetadata = (filename) => {
   return new Promise((resolve, reject) => {
@@ -27,7 +20,8 @@ const getMetadata = (filename) => {
 const getFiles = ({ thumb }) => {
   return fs
     .readdirSync(photosPath)
-    .filter((file) => !EXCLUDE_FILES.includes(file))
+    .filter((file) => !file.startsWith('.'))
+    .filter((file) => fs.statSync(path.join(photosPath, file)).isFile())
     .filter((file) =>
       thumb ? file.includes('thumb') : !file.includes('thumb')
     )
