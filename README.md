@@ -1,6 +1,6 @@
 # Cambium RSC
 
-A sample app built with v0.1 of Redwood Big Horn featuring support for React Server Components. For the classic, GraphQL version of this app see <https://github.com/cannikin/cambium-classic>
+The next epoch of [RedwoodJS](https://redwoodjs.com/) will be called Big Horn. This is a sample app built with the latest Big Horn canary release, featuring experimental support for React Server Components. For the classic, GraphQL version of this app, see: <https://github.com/cannikin/cambium-classic>
 
 <img width="1279" alt="image" src="https://github.com/cannikin/cambium-rsc/assets/300/de9fce2e-43ee-4e27-9bc1-f642970eb7d7">
 
