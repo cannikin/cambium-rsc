@@ -18,8 +18,8 @@ const DEFAULT_ADJUSTMENTS = {
 }
 
 const PhotoSuccess = ({ photo }) => {
-  const params = useParams()
-  const adjustments = { ...DEFAULT_ADJUSTMENTS, ...params }
+  const params = new URLSearchParams(location.hash.slice(1))
+  const adjustments = { ...DEFAULT_ADJUSTMENTS, ...Object.fromEntries(params) }
   const [showImage, setShowImage] = useState(false)
   const [showMetadata, setShowMetadata] = useState(false)
   const [windowHeight, setWindowHeight] = useState(window.innerHeight)
@@ -146,7 +146,10 @@ const PhotoSuccess = ({ photo }) => {
                   <h3 className="">f/{photo.metadata.exif.FNumber}</h3>
                 </td>
                 <td>
-                  <Link to={routes.edit(params)} className="button">
+                  <Link
+                    to={`${routes.edit({ id: photo.id })}#${params.toString()}`}
+                    className="button"
+                  >
                     Remix
                   </Link>
                 </td>

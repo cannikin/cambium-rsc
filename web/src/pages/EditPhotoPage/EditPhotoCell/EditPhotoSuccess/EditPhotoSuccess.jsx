@@ -9,8 +9,6 @@ import {
 } from '@heroicons/react/24/solid'
 import clsx from 'clsx'
 
-import { navigate, routes, useParams } from '@redwoodjs/router'
-
 import Actions from './Actions'
 import Controls from './Controls'
 import Metadata from './Metadata'
@@ -36,13 +34,13 @@ const TABS = [
 ]
 
 const EditPhotoSuccess = ({ photo }) => {
-  const params = useParams()
+  const params = new URLSearchParams(location.hash.slice(1))
   const [showImage, setShowImage] = useState(false)
   const [showTitle, setShowTitle] = useState(false)
   const [showControls, setShowControls] = useState(false)
   const [adjustments, setAdjustments] = useState({
     ...DEFAULT_ADJUSTMENTS,
-    ...params,
+    ...Object.fromEntries(params),
   })
   const [windowHeight, setWindowHeight] = useState(window.innerHeight)
   const refs = {
@@ -65,20 +63,15 @@ const EditPhotoSuccess = ({ photo }) => {
 
   // puts the adjustments into query string variables
   const updateUrl = (name, value) => {
-    let queryParams = { id: photo.id }
+    const newParams = new URLSearchParams(location.hash.slice(1))
 
-    if (name) {
-      queryParams = { ...queryParams, ...params }
-      if (value) {
-        queryParams[name] = value
-      } else {
-        delete queryParams[name]
-      }
+    if (value) {
+      newParams.set(name, value)
+    } else {
+      newParams.delete(name)
     }
 
-    navigate(routes.edit(queryParams), {
-      replace: true,
-    })
+    location.hash = new URLSearchParams(newParams).toString()
   }
 
   const onChange = (event) => {
@@ -101,10 +94,6 @@ const EditPhotoSuccess = ({ photo }) => {
   const onResetAll = () => {
     setAdjustments(DEFAULT_ADJUSTMENTS)
     updateUrl()
-  }
-
-  const onShare = () => {
-    setShowModal(true)
   }
 
   const onImageLoad = () => {
@@ -250,7 +239,7 @@ const EditPhotoSuccess = ({ photo }) => {
                     </Tab.Panel>
                   </Tab.Panels>
                 </Tab.Group>
-                <Actions onShare={onShare} />
+                <Actions />
               </div>
             </Transition>
           </div>

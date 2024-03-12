@@ -57,13 +57,13 @@ const CONTROLS = [
 ]
 
 const Controls = ({ refs, onChange, onReset, onResetAll }) => {
-  const params = useParams()
+  const params = new URLSearchParams(location.hash.slice(1))
 
   // override any defaultValues that are in the URL
   const controls = CONTROLS.map((control) => {
     return {
       ...control,
-      defaultValue: params[control.name] || control.defaultValue,
+      defaultValue: params.get(control.name) || control.defaultValue,
     }
   })
 
