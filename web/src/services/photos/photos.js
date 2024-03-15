@@ -29,26 +29,20 @@ const getFiles = ({ thumb }) => {
 
 // returns the collection of all available photos
 export const photos = () => {
-  const photos = []
-  let id = 1
-
-  for (const filename of getFiles({ thumb: true })) {
-    photos.push({
-      id: id++,
+  return getFiles({ thumb: true }).map((filename, index) => {
+    return {
+      id: index + 1,
       filename,
-    })
-  }
-
-  return photos
+    }
+  })
 }
 
 // returns the metadata for a specific photo
 export const photo = async (id) => {
   const filename = getFiles({ thumb: false })[id - 1]
 
-  const { image: imageMetadata, exif: exifMetadata } = await getMetadata(
-    filename
-  )
+  const { image: imageMetadata, exif: exifMetadata } =
+    await getMetadata(filename)
 
   const fStop = Math.round(1.4142 ** exifMetadata.ApertureValue * 10) / 10
   const shutterSpeed = `1/${parseInt(1 / exifMetadata.ExposureTime)}`
