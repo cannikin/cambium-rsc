@@ -1,3 +1,4 @@
+// @ts-expect-error - required for node
 import { defineEntries } from '@redwoodjs/vite/entries'
 
 export default defineEntries(
