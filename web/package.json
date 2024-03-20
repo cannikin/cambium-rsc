@@ -14,17 +14,17 @@
     "@apollo/experimental-nextjs-app-support": "0.0.0-commit-b8a73fe",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
-    "@redwoodjs/forms": "8.0.0-canary.295",
-    "@redwoodjs/router": "8.0.0-canary.295",
-    "@redwoodjs/web": "8.0.0-canary.295",
+    "@redwoodjs/forms": "8.0.0-canary.331",
+    "@redwoodjs/router": "8.0.0-canary.331",
+    "@redwoodjs/web": "8.0.0-canary.331",
     "clsx": "^2.1.0",
     "date-fns": "^3.3.1",
     "exif": "^0.6.0",
-    "react": "0.0.0-experimental-e5205658f-20230913",
-    "react-dom": "0.0.0-experimental-e5205658f-20230913"
+    "react": "18.3.0-canary-a870b2d54-20240314",
+    "react-dom": "18.3.0-canary-a870b2d54-20240314"
   },
   "devDependencies": {
-    "@redwoodjs/vite": "8.0.0-canary.295",
+    "@redwoodjs/vite": "8.0.0-canary.331",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.18",
