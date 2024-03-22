@@ -4504,7 +4504,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs/api@npm:8.0.0-canary.336, @redwoodjs/api@npm:8.0.0-canary.336+2820e54da":
+"@redwoodjs/api@npm:8.0.0-canary.336+2820e54da":
   version: 8.0.0-canary.336
   resolution: "@redwoodjs/api@npm:8.0.0-canary.336"
   dependencies:
@@ -4793,7 +4793,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redwoodjs/graphql-server@npm:8.0.0-canary.336, @redwoodjs/graphql-server@npm:8.0.0-canary.336+2820e54da":
+"@redwoodjs/graphql-server@npm:8.0.0-canary.336+2820e54da":
   version: 8.0.0-canary.336
   resolution: "@redwoodjs/graphql-server@npm:8.0.0-canary.336"
   dependencies:
@@ -7150,15 +7150,6 @@ __metadata:
   checksum: 10c0/57b06ae984bc32a0d22592c87384cd88fe4511b1dd7581497831c56d41939c8a001b28e7b853e1450f2bf61992dfcaa8ae2d0d161a0a90c4fb631ef07098fbac
   languageName: node
   linkType: hard
-
-"api@workspace:api":
-  version: 0.0.0-use.local
-  resolution: "api@workspace:api"
-  dependencies:
-    "@redwoodjs/api": "npm:8.0.0-canary.336"
-    "@redwoodjs/graphql-server": "npm:8.0.0-canary.336"
-  languageName: unknown
-  linkType: soft
 
 "aproba@npm:^1.1.1":
   version: 1.2.0
